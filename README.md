@@ -26,3 +26,7 @@ Extracts all .mp4 files from .tar files in the specified folder and places them 
 
 combine_annotations_with_videos(jsonPath, videoFilesDict, outputFilePath)
 Combines the annotations from the JSON file with the extracted .mp4 files and outputs a new JSON file with the annotated data.
+```
+
+### Credits
+Source: https://github.com/mbzuai-oryx/Video-ChatGPT
