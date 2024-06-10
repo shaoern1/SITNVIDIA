@@ -1,6 +1,7 @@
 import json
 import tarfile
 import os
+from moviepy.editor import VideoFileClip
 
 
 class VideoProcessor:
@@ -23,10 +24,26 @@ class VideoProcessor:
                     for member in tar.getmembers():
                         if member.isfile():
                             video_id = os.path.splitext(os.path.basename(member.name))[0]
-                            self.video_files[video_id] = os.path.join(self.extract_path, member.name)
+                            video_path = os.path.join(self.extract_path, member.name)
+                            duration = self.get_video_duration(video_path)
+                            self.video_files[video_id] = {
+                                "path": video_path,
+                                "duration": duration
+                            }
 
         print("Extraction complete:", self.video_files)
         return self.video_files
+
+    def get_video_duration(self, video_path):
+        """
+        Get the duration of the video in seconds.
+        """
+        try:
+            with VideoFileClip(video_path) as video:
+                return video.duration
+        except Exception as e:
+            print(f"Error reading video {video_path}: {e}")
+            return None
 
     def combine_annotations_with_videos(self):
         """
@@ -43,12 +60,13 @@ class VideoProcessor:
         combined_data = {}
         for annotation in annotations_data:
             video_id = annotation.get("video_id")
-            video_file = self.video_files.get(video_id)
-            if video_file:
+            video_info = self.video_files.get(video_id)
+            if video_info:
                 if video_id not in combined_data:
                     combined_data[video_id] = {
                         "video_id": video_id,
-                        "video_path": video_file,
+                        "video_path": video_info["path"],
+                        "duration": video_info["duration"],
                         "questions_and_answers": []
                     }
 
