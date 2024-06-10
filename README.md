@@ -28,6 +28,7 @@ combine_annotations_with_videos(jsonPath, videoFilesDict, outputFilePath)
 Combines the annotations from the JSON file with the extracted .mp4 files and outputs a new JSON file with the annotated data.
 ```
 ### Updates
+10 June 2024
 - Updated "functions.py" to include video duration with "moviepy.editor" package
 - Included ipynb file for initial and simple EDA on a subset of the dataset 
 
