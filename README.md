@@ -14,10 +14,10 @@ A simple program that extracts `.mp4` files from `.tar` files. Next, it will agg
 ### Example
 
 ```python
-tar_dir = '/Users/shaoern/Desktop/SITNIVIDIA/tar_train'
-extract_path = '/Users/shaoern/Desktop/SITNIVIDIA/tar_train/tar_output'
-annotations_json_path = '/Users/shaoern/Desktop/SITNIVIDIA/VideoInstruct_Dataset.json'
-output_file_path = '/Users/shaoern/Desktop/SITNIVIDIA/Jsonoutput/combined_data.json'
+tar_dir = "../tar_train"
+extract_path = "../tar_train/tar_output"
+annotations_json_path = "../data/VideoInstruct_Dataset.json"
+output_file_path = "../Jsonoutput/combined_data.json"
 
 
 ### Functions
@@ -31,6 +31,9 @@ Combines the annotations from the JSON file with the extracted .mp4 files and ou
 10 June 2024
 - Updated "functions.py" to include video duration with "moviepy.editor" package
 - Included ipynb file for initial and simple EDA on a subset of the dataset 
+
+11 June 2024
+- Refactor files to proper format
 
 ### Credits
 Source: https://github.com/mbzuai-oryx/Video-ChatGPT

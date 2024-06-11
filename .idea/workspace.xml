@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b368e29-5f55-49b8-9645-df5ebc944d04" name="Changes" comment="&quot;merge complete&quot;">
-      <change beforePath="$PROJECT_DIR$/EDA_on_dataset.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/EDA_on_dataset.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jsonoutput/combined_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/Jsonoutput/combined_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VideoInstruct_Dataset.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/VideoInstruct_Dataset.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
