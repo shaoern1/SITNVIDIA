@@ -3,7 +3,6 @@ import tarfile
 import os
 from moviepy.editor import VideoFileClip
 
-
 class VideoProcessor:
     def __init__(self, tar_dir, extract_path, annotations_json_path, output_file_path):
         self.tar_dir = tar_dir
@@ -25,25 +24,23 @@ class VideoProcessor:
                         if member.isfile():
                             video_id = os.path.splitext(os.path.basename(member.name))[0]
                             video_path = os.path.join(self.extract_path, member.name)
-                            duration = self.get_video_duration(video_path)
+                            duration, framerate = self.get_video_properties(video_path)
                             self.video_files[video_id] = {
                                 "path": video_path,
-                                "duration": duration
+                                "duration": duration,
+                                "framerate": framerate
                             }
-
         print("Extraction complete:", self.video_files)
         return self.video_files
 
-    def get_video_duration(self, video_path):
-        """
-        Get the duration of the video in seconds.
-        """
+    def get_video_properties(self, video_path):
+        """Returns the duration and framerate of the video."""
         try:
             with VideoFileClip(video_path) as video:
-                return video.duration
+                return video.duration, round(video.fps,2)
         except Exception as e:
-            print(f"Error reading video {video_path}: {e}")
-            return None
+            print(f"Error reading video properties from {video_path}: {e}")
+            return None, None
 
     def combine_annotations_with_videos(self):
         """
@@ -67,6 +64,7 @@ class VideoProcessor:
                         "video_id": video_id,
                         "video_path": video_info["path"],
                         "duration": video_info["duration"],
+                        "framerate":video_info["framerate"],
                         "questions_and_answers": []
                     }
 
